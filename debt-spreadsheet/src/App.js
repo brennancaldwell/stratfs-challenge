@@ -7,14 +7,30 @@ function App() {
   const [ allData, setAllData ] = useState([]);
   const [ selected, setSelected ] = useState([]);
 
+  function selectOne(e) {
+    let newSelected = selected.slice();
+    if (newSelected.includes(e.target.id)) {
+      newSelected = newSelected.filter(el => el !== e.target.id);
+    } else {
+      newSelected.push(e.target.id);
+    }
+    setSelected(newSelected);
+  }
+
   useEffect(() => {
     axios.get('https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json')
           .then((data) => setAllData(data.data));
   }, []);
 
+  console.log(selected);
+
   return (
     <div className="App">
-      <Table transactions={allData}/>
+      <Table
+        transactions={allData}
+        selected={selected}
+        selectOne={selectOne}
+      />
     </div>
   );
 }
