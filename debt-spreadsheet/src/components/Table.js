@@ -4,16 +4,19 @@ import { padNumber } from './helpers';
 export default function Table({ transactions, selected, selectOne, selectAll }) {
   return (
     <table>
-      <tr>
-        <th>
-          <input type="checkbox" onClick={selectAll}/>
-        </th>
-        <th>Creditor</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Min Pay %</th>
-        <th>Balance</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" onClick={selectAll}/>
+          </th>
+          <th>Creditor</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Min Pay %</th>
+          <th>Balance</th>
+        </tr>
+       </thead>
+      <tbody>
       {transactions.map(transaction => {
         let check = (<input
           type="checkbox"
@@ -31,7 +34,6 @@ export default function Table({ transactions, selected, selectOne, selectAll }) 
           checked/>
         }
 
-        console.log(typeof transaction.id)
         return (
           <tr style={selectedStyle}>
             <td>
@@ -45,6 +47,7 @@ export default function Table({ transactions, selected, selectOne, selectAll }) 
           </tr>
         )
       })}
+      </tbody>
     </table>
   );
 }

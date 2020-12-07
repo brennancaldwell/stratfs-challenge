@@ -6,7 +6,7 @@ import AddDebt from './components/AddDebt';
 import { calculateTotal } from './components/helpers';
 import './App.css';
 
-Modal.setAppElement('#root');
+//Modal.setAppElement('#root');
 
 function App() {
   const [ allData, setAllData ] = useState([]);
