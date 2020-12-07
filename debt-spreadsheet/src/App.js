@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Table from './components/Table';
 import Modal from 'react-modal';
+import AddDebt from './components/AddDebt';
 import './App.css';
 
 function App() {
@@ -63,8 +64,9 @@ function App() {
       <Modal
         isOpen={modalOpen}
         onRequestClose={toggleModal}
+        style={{content: { 'max-width': '500px'}}}
       >
-        hello world
+        <AddDebt />
       </Modal>
 
     </div>
