@@ -66,7 +66,7 @@ function App() {
       <button className="add" onClick={toggleModal}>
         Add Debt
       </button>
-      <button className-="remove" onClick={removeDebt}>
+      <button className="remove" onClick={removeDebt}>
         Remove Debt
       </button>
       <Modal
