@@ -52,7 +52,14 @@ function App() {
           .then((data) => setAllData(data.data));
   }, []);
 
-  console.log(selected);
+  let remove = (<div></div>);
+  if (selected.length > 0) {
+    remove = (
+      <button className="remove" onClick={removeDebt}>
+        Remove Debt
+      </button>
+    );
+  }
 
   return (
     <div className="App">
@@ -65,9 +72,8 @@ function App() {
       <button className="add" onClick={toggleModal}>
         Add Debt
       </button>
-      <button className="remove" onClick={removeDebt}>
-        Remove Debt
-      </button> <br />
+      {remove}
+      <br />
       <h2 className="total">Total: ${calculateTotal(allData, selected)}</h2>
       <div>Total Row Count: {allData.length}</div>
       <div>Check Row Count: {selected.length}</div>
