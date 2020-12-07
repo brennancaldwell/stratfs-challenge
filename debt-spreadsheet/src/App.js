@@ -77,6 +77,7 @@ function App() {
         <AddDebt
           addDebt={addDebt}
           toggleModal={toggleModal}
+          allData={allData}
         />
       </Modal>
 
