@@ -68,7 +68,9 @@ function App() {
       <button className="remove" onClick={removeDebt}>
         Remove Debt
       </button>
-      <h2>Total: ${calculateTotal(allData, selected)}</h2>
+      <h2 className="total">Total: ${calculateTotal(allData, selected)}</h2>
+      <div>Total Row Count: {allData.length}</div>
+      <div>Check Row Count: {selected.length}</div>
       <Modal
         isOpen={modalOpen}
         onRequestClose={toggleModal}
