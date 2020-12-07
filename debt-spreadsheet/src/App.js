@@ -5,6 +5,8 @@ import Modal from 'react-modal';
 import AddDebt from './components/AddDebt';
 import './App.css';
 
+Modal.setAppElement('#root');
+
 function App() {
   const [ allData, setAllData ] = useState([]);
   const [ selected, setSelected ] = useState([]);
@@ -38,6 +40,12 @@ function App() {
     setModalOpen(!modalOpen);
   }
 
+  function addDebt(newTransaction) {
+    let newAllData = allData.slice();
+    newAllData.push(newTransaction);
+    setAllData(newAllData);
+  }
+
   useEffect(() => {
     axios.get('https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json')
           .then((data) => setAllData(data.data));
@@ -58,15 +66,18 @@ function App() {
       <button className="add" onClick={toggleModal}>
         Add Debt
       </button>
-      <button onClick={removeDebt}>
+      <button className-="remove" onClick={removeDebt}>
         Remove Debt
       </button>
       <Modal
         isOpen={modalOpen}
         onRequestClose={toggleModal}
-        style={{content: { 'max-width': '500px'}}}
+        style={{content: { 'max-width': '500px', 'max-height': '300px'}}}
       >
-        <AddDebt />
+        <AddDebt
+          addDebt={addDebt}
+          toggleModal={toggleModal}
+        />
       </Modal>
 
     </div>

@@ -9,7 +9,6 @@ td {
 }
 
 button {
-  float: left;
   margin: 5px;
   padding: 10px;
   background-color: #3dcf69;
@@ -20,6 +19,24 @@ button {
 }
 
 button.add {
+  background-color: rgb(65, 188, 236);
+  float: left;
+}
+
+button.remove {
+  float: left;
+}
+
+.modal {
+  text-align: center;
+  margin: 10px;
+}
+
+input {
+  margin: 5px;
+}
+
+#addModal {
   background-color: rgb(65, 188, 236);
 }
 

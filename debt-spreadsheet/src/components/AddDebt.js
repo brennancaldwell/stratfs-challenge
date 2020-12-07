@@ -11,6 +11,8 @@ export default class AddDebt extends React.Component {
       balance: ''
     }
 
+    const { addDebt, toggleModal } = this.props;
+
     this.onChange = this.onChange.bind(this);
   }
 
@@ -20,11 +22,13 @@ export default class AddDebt extends React.Component {
     });
   }
 
+
+
   render() {
     const { creditorName, firstName, lastName, minPaymentPercentage, balance } = this.state;
 
     return (
-      <div>
+      <div className="modal">
         <h2>Add Debt</h2>
         <label name="creditor">Creditor: </label>
           <input
@@ -61,6 +65,7 @@ export default class AddDebt extends React.Component {
           onChange={this.onChange}
           value={balance}
           /> <br />
+          <button id="addModal">Submit Debt</button>
       </div>
     );
   }
