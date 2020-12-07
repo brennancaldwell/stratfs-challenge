@@ -15,14 +15,14 @@ export default function Table({ transactions, selected, selectOne }) {
         <th>Balance</th>
       </tr>
       {transactions.map(transaction => {
-        /* let check = (<input type="checkbox" id={transaction.id} />);
-
+        let selectedStyle = { background: '#ffffff' };
         if (selected.includes(transaction.id)) {
-          check = (<input type="checkbox" id={transaction.id} />)
-        } */
+          selectedStyle = { background: '#f58887' }
+        }
 
+        console.log(typeof transaction.id)
         return (
-          <tr>
+          <tr style={selectedStyle}>
             <td>
               <input
                 type="checkbox"

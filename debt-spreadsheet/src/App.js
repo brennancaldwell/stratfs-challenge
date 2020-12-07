@@ -9,10 +9,10 @@ function App() {
 
   function selectOne(e) {
     let newSelected = selected.slice();
-    if (newSelected.includes(e.target.id)) {
-      newSelected = newSelected.filter(el => el !== e.target.id);
+    if (newSelected.includes(Number(e.target.id))) {
+      newSelected = newSelected.filter(el => el !== Number(e.target.id));
     } else {
-      newSelected.push(e.target.id);
+      newSelected.push(Number(e.target.id));
     }
     setSelected(newSelected);
   }
