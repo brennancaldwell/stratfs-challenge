@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Table() {
+export default function Table({ transactions }) {
   return (
     <table>
       <tr>
@@ -13,6 +13,20 @@ export default function Table() {
         <th>Min Pay %</th>
         <th>Balance</th>
       </tr>
+      {transactions.map(transaction => {
+        return (
+          <tr>
+            <td>
+              <input type="checkbox" id={transaction.id} />
+            </td>
+            <td>{transaction.creditorName}</td>
+            <td>{transaction.firstName}</td>
+            <td>{transaction.lastName}</td>
+            <td>{transaction.minPaymentPercentage}</td>
+            <td>{transaction.balance}</td>
+          </tr>
+        )
+      })}
     </table>
   );
 }

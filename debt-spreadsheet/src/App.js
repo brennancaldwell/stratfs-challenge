@@ -12,11 +12,9 @@ function App() {
           .then((data) => setAllData(data.data));
   }, []);
 
-  console.log(allData);
-
   return (
     <div className="App">
-      <Table />
+      <Table transactions={allData}/>
     </div>
   );
 }
