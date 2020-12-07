@@ -1,12 +1,12 @@
 import React from 'react';
 import { padNumber } from './helpers';
 
-export default function Table({ transactions, selected, selectOne }) {
+export default function Table({ transactions, selected, selectOne, selectAll }) {
   return (
     <table>
       <tr>
         <th>
-          <input type="checkbox" />
+          <input type="checkbox" onClick={selectAll}/>
         </th>
         <th>Creditor</th>
         <th>First Name</th>
@@ -15,20 +15,27 @@ export default function Table({ transactions, selected, selectOne }) {
         <th>Balance</th>
       </tr>
       {transactions.map(transaction => {
+        let check = (<input
+          type="checkbox"
+          id={transaction.id}
+          onClick={selectOne}
+        />);
+
         let selectedStyle = { background: '#ffffff' };
         if (selected.includes(transaction.id)) {
           selectedStyle = { background: '#f58887' }
+          check = <input
+          type="checkbox"
+          id={transaction.id}
+          onClick={selectOne}
+          checked/>
         }
 
         console.log(typeof transaction.id)
         return (
           <tr style={selectedStyle}>
             <td>
-              <input
-                type="checkbox"
-                id={transaction.id}
-                onClick={selectOne}
-              />
+              {check}
             </td>
             <td>{transaction.creditorName}</td>
             <td>{transaction.firstName}</td>

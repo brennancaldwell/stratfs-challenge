@@ -17,6 +17,14 @@ function App() {
     setSelected(newSelected);
   }
 
+  function selectAll() {
+    let newSelected = [];
+    if (selected.length < allData.length) {
+      allData.forEach(transaction => newSelected.push(transaction.id));
+    }
+    setSelected(newSelected);
+  }
+
   useEffect(() => {
     axios.get('https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json')
           .then((data) => setAllData(data.data));
@@ -30,6 +38,7 @@ function App() {
         transactions={allData}
         selected={selected}
         selectOne={selectOne}
+        selectAll={selectAll}
       />
     </div>
   );
