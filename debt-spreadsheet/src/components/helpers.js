@@ -5,6 +5,19 @@ function padNumber(num) {
   return stringNum;
 }
 
+function calculateTotal(allData, selected) {
+  let batch = allData;
+  if (selected.length > 0 && selected.length < allData.length) {
+    batch = batch.filter(transaction => selected.includes(transaction.id));
+  }
+
+  let total = 0;
+  batch.forEach(transaction => total += transaction.balance);
+
+  return padNumber(total);
+}
+
 export {
-  padNumber
+  padNumber,
+  calculateTotal
 }

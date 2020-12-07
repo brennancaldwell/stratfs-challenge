@@ -3,6 +3,7 @@ import axios from 'axios';
 import Table from './components/Table';
 import Modal from 'react-modal';
 import AddDebt from './components/AddDebt';
+import { calculateTotal } from './components/helpers';
 import './App.css';
 
 Modal.setAppElement('#root');
@@ -53,8 +54,6 @@ function App() {
 
   console.log(selected);
 
-  if (allData.length === 0) return (<h1>Loading...</h1>)
-
   return (
     <div className="App">
       <Table
@@ -69,6 +68,7 @@ function App() {
       <button className="remove" onClick={removeDebt}>
         Remove Debt
       </button>
+      <h2>Total: ${calculateTotal(allData, selected)}</h2>
       <Modal
         isOpen={modalOpen}
         onRequestClose={toggleModal}
