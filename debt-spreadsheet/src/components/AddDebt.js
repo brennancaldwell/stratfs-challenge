@@ -42,7 +42,12 @@ export default class AddDebt extends React.Component {
       throw new Error ('Please enter a number for Balance!')
     }
 
-    addDebt({ id, creditorName, firstName, lastName, minPaymentPercentage, balance});
+    addDebt({ id,
+              creditorName,
+              firstName,
+              lastName,
+              minPaymentPercentage: Number(minPaymentPercentage),
+              balance: Number(balance)});
 
     toggleModal();
   }
