@@ -12,6 +12,17 @@ td {
   border: 1px solid black;
 }
 
+button {
+  float: left;
+  margin: 5px;
+  padding: 10px;
+  background-color: #3dcf69;
+  border-style: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #000000;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

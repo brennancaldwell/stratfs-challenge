@@ -25,6 +25,12 @@ function App() {
     setSelected(newSelected);
   }
 
+  function removeDebt() {
+    let newAllData = allData.filter(transaction => !selected.includes(transaction.id));
+    setAllData(newAllData);
+    setSelected([]);
+  }
+
   useEffect(() => {
     axios.get('https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json')
           .then((data) => setAllData(data.data));
@@ -40,6 +46,9 @@ function App() {
         selectOne={selectOne}
         selectAll={selectAll}
       />
+      <button onClick={removeDebt}>
+        Remove Debt
+      </button>
     </div>
   );
 }
