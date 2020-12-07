@@ -1,4 +1,5 @@
 import React from 'react';
+import { padNumber } from './helpers';
 
 export default function Table({ transactions }) {
   return (
@@ -22,8 +23,8 @@ export default function Table({ transactions }) {
             <td>{transaction.creditorName}</td>
             <td>{transaction.firstName}</td>
             <td>{transaction.lastName}</td>
-            <td>{transaction.minPaymentPercentage}</td>
-            <td>{transaction.balance}</td>
+            <td>{padNumber(transaction.minPaymentPercentage)}%</td>
+            <td>{padNumber(transaction.balance)}</td>
           </tr>
         )
       })}
