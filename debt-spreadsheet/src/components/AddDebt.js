@@ -35,11 +35,14 @@ export default class AddDebt extends React.Component {
     }, 0) + 1;
 
     if (isNaN(Number(minPaymentPercentage)) && isNaN(Number(balance))) {
-      throw new Error('Please enter a number for Min Pay % and Balance!')
+      alert('Please enter a number for Min Pay % and Balance!');
+      return;
     } else if (isNaN(Number(minPaymentPercentage))) {
-      throw new Error ('Please enter a number for Min Pay %!')
+      alert('Please enter a number for Min Pay %!');
+      return;
     } else if (isNaN(Number(balance))) {
-      throw new Error ('Please enter a number for Balance!')
+      alert('Please enter a number for Balance!');
+      return;
     }
 
     addDebt({ id,
