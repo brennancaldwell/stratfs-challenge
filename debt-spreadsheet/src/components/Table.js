@@ -2,12 +2,19 @@ import React from 'react';
 import { padNumber } from './helpers';
 
 export default function Table({ transactions, selected, selectOne, selectAll }) {
+
+  let checkAll =(<input type="checkbox" onClick={selectAll}/>);
+  if (selected.length === 0) {
+    checkAll =(<input type="checkbox" onClick={selectAll}/>);
+  } else if (selected.length === transactions.length) {
+    checkAll =(<input type="checkbox" onClick={selectAll} checked/>)
+  }
   return (
     <table>
       <thead>
         <tr>
           <th>
-            <input type="checkbox" onClick={selectAll}/>
+            {checkAll}
           </th>
           <th>Creditor</th>
           <th>First Name</th>
@@ -25,13 +32,16 @@ export default function Table({ transactions, selected, selectOne, selectAll }) 
         />);
 
         let selectedStyle = { background: '#ffffff' };
-        if (selected.includes(transaction.id)) {
-          selectedStyle = { background: '#f58887' }
-          check = <input
+        if (selected.length > 0) {
+          if (selected.includes(transaction.id)) {
+            check = <input
           type="checkbox"
           id={transaction.id}
           onClick={selectOne}
           checked/>
+          } else {
+            selectedStyle = { background: '#f58887' }
+          }
         }
 
         return (
