@@ -30,8 +30,8 @@ Entering a value that cannot be parsed into a number in either the "Min Pay %" o
 
 ## Requirements
 
-- Axios 0.19.2
-- React 16.13.1
+- Axios 0.21.0
+- React 17.0.1
 - react-modal 3.12.1
 
 
